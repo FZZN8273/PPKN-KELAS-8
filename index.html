@@ -14,7 +14,7 @@
         }
         
         body {
-            background-color: #f0f7ff;
+            background-color: #f5f9ff;
             color: #333;
             line-height: 1.6;
         }
@@ -46,6 +46,40 @@
             padding: 2rem 1rem;
         }
         
+        .nav {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .nav ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            list-style: none;
+            gap: 1rem;
+        }
+        
+        .nav a {
+            text-decoration: none;
+            color: #283593;
+            background-color: #e8eaf6;
+            padding: 0.6rem 1.2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .nav a:hover, .nav a.active {
+            background-color: #283593;
+            color: white;
+        }
+        
         .intro {
             background-color: white;
             padding: 2rem;
@@ -63,60 +97,72 @@
             gap: 0.7rem;
         }
         
-        .intro h2 i {
-            color: #283593;
+        .materi-section {
+            display: none;
+            animation: fadeIn 0.5s ease;
         }
         
-        .video-section {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            margin-bottom: 3rem;
+        .materi-section.active {
+            display: block;
         }
         
-        .video-card {
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .materi-card {
             background-color: white;
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
-            flex: 1;
-            min-width: 300px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
+            margin-bottom: 2.5rem;
+            transition: transform 0.3s ease;
         }
         
-        .video-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
+        .materi-card:hover {
+            transform: translateY(-5px);
         }
         
-        .video-header {
+        .materi-header {
             background: linear-gradient(to right, #283593, #1a237e);
             color: white;
             padding: 1.5rem;
         }
         
-        .video-header h3 {
-            font-size: 1.4rem;
+        .materi-header h3 {
+            font-size: 1.5rem;
             display: flex;
             align-items: center;
             gap: 0.8rem;
         }
         
-        .video-header h3 i {
-            font-size: 1.3rem;
+        .materi-content {
+            padding: 2rem;
         }
         
-        .video-content {
-            padding: 1.8rem;
-            flex-grow: 1;
+        .materi-content h4 {
+            color: #283593;
+            margin: 1.5rem 0 0.8rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e8eaf6;
             display: flex;
-            flex-direction: column;
+            align-items: center;
+            gap: 0.7rem;
         }
         
-        .video-content p {
-            margin-bottom: 1.5rem;
+        .materi-content p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+        
+        .materi-content ul, .materi-content ol {
+            margin-left: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .materi-content li {
+            margin-bottom: 0.5rem;
         }
         
         .video-link {
@@ -129,11 +175,12 @@
             font-weight: 600;
             text-align: center;
             transition: all 0.3s ease;
-            margin-top: auto;
+            margin: 1rem 0;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 0.7rem;
+            width: fit-content;
         }
         
         .video-link:hover {
@@ -142,11 +189,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         }
         
-        .video-link:active {
-            transform: scale(0.98);
-        }
-        
-        .history-box {
+        .penjelasan-box {
             background-color: #e8eaf6;
             border-left: 4px solid #283593;
             padding: 1.5rem;
@@ -154,7 +197,7 @@
             border-radius: 0 8px 8px 0;
         }
         
-        .history-box h4 {
+        .penjelasan-box h4 {
             color: #283593;
             margin-bottom: 0.8rem;
             display: flex;
@@ -162,8 +205,146 @@
             gap: 0.7rem;
         }
         
-        .history-box h4 i {
+        .quiz-container {
+            background-color: white;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+            border-top: 5px solid #4caf50;
+        }
+        
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .quiz-header h3 {
             color: #283593;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+        
+        .score {
+            background-color: #4caf50;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        
+        .question {
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .question p {
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+        
+        .option {
+            background-color: #f5f5f5;
+            padding: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: 2px solid transparent;
+        }
+        
+        .option:hover {
+            background-color: #e8eaf6;
+        }
+        
+        .option.selected {
+            border-color: #283593;
+            background-color: #e8eaf6;
+        }
+        
+        .option.correct {
+            border-color: #4caf50;
+            background-color: #e8f5e9;
+        }
+        
+        .option.incorrect {
+            border-color: #f44336;
+            background-color: #ffebee;
+        }
+        
+        .quiz-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1.5rem;
+        }
+        
+        .btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-primary {
+            background-color: #283593;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background-color: #1a237e;
+        }
+        
+        .btn-secondary {
+            background-color: #f5f5f5;
+            color: #333;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #e0e0e0;
+        }
+        
+        .btn-success {
+            background-color: #4caf50;
+            color: white;
+        }
+        
+        .btn-success:hover {
+            background-color: #388e3c;
+        }
+        
+        .result {
+            text-align: center;
+            padding: 2rem;
+            background-color: #e8f5e9;
+            border-radius: 10px;
+            margin-top: 1.5rem;
+            display: none;
+        }
+        
+        .result h3 {
+            color: #2e7d32;
+            margin-bottom: 1rem;
+        }
+        
+        .result-score {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #283593;
+            margin: 1rem 0;
         }
         
         footer {
@@ -171,66 +352,32 @@
             color: white;
             text-align: center;
             padding: 1.8rem;
-            margin-top: 2rem;
-        }
-        
-        .note {
-            background-color: #fff8e1;
-            border: 1px solid #ffd54f;
-            padding: 1.2rem;
-            border-radius: 8px;
-            margin-top: 2rem;
-            font-size: 0.95rem;
-        }
-        
-        .note h4 {
-            color: #f57c00;
-            margin-bottom: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        
-        .instructions {
-            background-color: #e8f5e9;
-            border: 1px solid #81c784;
-            padding: 1.2rem;
-            border-radius: 8px;
-            margin-top: 1.5rem;
-        }
-        
-        .instructions h4 {
-            color: #2e7d32;
-            margin-bottom: 0.8rem;
-            display: flex;
-            align-items: center;
-            gap: 0.7rem;
-        }
-        
-        .instructions ul {
-            padding-left: 1.5rem;
-            margin-top: 0.5rem;
-        }
-        
-        .instructions li {
-            margin-bottom: 0.5rem;
+            margin-top: 3rem;
         }
         
         @media (max-width: 768px) {
-            .video-section {
+            .nav ul {
                 flex-direction: column;
+                align-items: center;
             }
             
-            .video-card {
+            .nav a {
                 width: 100%;
+                justify-content: center;
             }
             
             header h1 {
                 font-size: 1.9rem;
             }
             
-            .video-link {
-                padding: 0.8rem 1.2rem;
+            .quiz-buttons {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .btn {
+                width: 100%;
+                justify-content: center;
             }
         }
     </style>
@@ -238,128 +385,539 @@
 <body>
     <header>
         <h1><i class="fas fa-graduation-cap"></i> Pembelajaran PPKn Kelas 8</h1>
-        <p>Mengenal Kearifan Lokal, Budaya Bangsa, dan Keamanan Siber dalam Konteks Pendidikan Kewarganegaraan</p>
+        <p>Materi PPKn Kelas 8 dengan Teks, Penjelasan Sejarah, dan Quiz Interaktif</p>
     </header>
     
     <div class="container">
+        <nav class="nav">
+            <ul>
+                <li><a href="#" class="nav-link active" data-target="materi1"><i class="fas fa-seedling"></i> Hal 5: Tanah Ulen</a></li>
+                <li><a href="#" class="nav-link" data-target="materi2"><i class="fas fa-globe-asia"></i> Hal 10: Promosi Budaya</a></li>
+                <li><a href="#" class="nav-link" data-target="materi3"><i class="fas fa-shield-alt"></i> Hal 49: Keamanan Siber</a></li>
+            </ul>
+        </nav>
+        
         <section class="intro">
             <h2><i class="fas fa-book-open"></i> Selamat Belajar PPKn Kelas 8!</h2>
-            <p>Halaman ini berisi materi pembelajaran PPKn kelas 8 yang disajikan dalam bentuk video. Klik link di bawah setiap judul materi untuk menonton video pembelajaran. Setiap video dilengkapi dengan penjelasan sejarah mengapa materi tersebut penting untuk dipelajari dalam konteks Pendidikan Pancasila dan Kewarganegaraan.</p>
+            <p>Halaman ini berisi materi pembelajaran PPKn kelas 8 dalam bentuk teks, dilengkapi dengan penjelasan sejarah mengapa materi tersebut penting untuk dipelajari, serta quiz interaktif untuk menguji pemahaman Anda.</p>
         </section>
         
-        <section class="video-section">
-            <!-- Video 1 -->
-            <article class="video-card">
-                <div class="video-header">
+        <!-- Materi 1: Tanah Ulen -->
+        <section id="materi1" class="materi-section active">
+            <article class="materi-card">
+                <div class="materi-header">
                     <h3><i class="fas fa-seedling"></i> Hal 5: Tanah Ulen - Kearifan Lokal Dayak</h3>
                 </div>
-                <div class="video-content">
-                    <p><strong>Materi:</strong> Tanah Ulen merupakan bentuk kearifan lokal masyarakat Dayak dalam mengelola sumber daya alam secara berkelanjutan. Konsep ini mencerminkan bagaimana masyarakat adat menjaga kelestarian lingkungan berdasarkan nilai-nilai tradisional.</p>
+                <div class="materi-content">
+                    <h4><i class="fas fa-book"></i> Materi Pembelajaran</h4>
+                    <p>Tanah Ulen adalah sistem pengelolaan tanah secara adat yang dipraktikkan oleh masyarakat Dayak di Kalimantan. Sistem ini mencerminkan kearifan lokal dalam menjaga kelestarian lingkungan dan sumber daya alam.</p>
+                    
+                    <p>Konsep Tanah Ulen mengatur bahwa ada bagian-bagian tertentu dari hutan dan lahan yang tidak boleh dimanfaatkan secara sembarangan, melainkan dijaga sebagai cadangan untuk masa depan. Tanah Ulen biasanya berupa hutan larangan, sumber air, atau area yang dianggap sakral.</p>
+                    
+                    <p>Ciri-ciri Tanah Ulen:</p>
+                    <ol>
+                        <li>Dikelola secara turun-temurun oleh masyarakat adat</li>
+                        <li>Memiliki aturan adat yang ketat dalam pemanfaatannya</li>
+                        <li>Berfungsi sebagai penyangga ekosistem</li>
+                        <li>Menjadi tempat hidup flora dan fauna langka</li>
+                        <li>Sebagai sumber kehidupan berkelanjutan bagi masyarakat</li>
+                    </ol>
                     
                     <a href="https://drive.google.com/file/d/1dvfmpBcdmD_ZszWYzAZdVPWIkkrb4qLF/view?usp=drivesdk" target="_blank" class="video-link">
                         <i class="fas fa-play-circle"></i> Tonton Video Tanah Ulen
                     </a>
                     
-                    <div class="history-box">
-                        <h4><i class="fas fa-history"></i> Mengapa Harus Nonton Video Ini?</h4>
-                        <p>Penting untuk mempelajari Tanah Ulen karena konsep ini merepresentasikan penerapan nilai-nilai Pancasila dalam kehidupan nyata masyarakat adat. Sejarah pengelolaan tanah secara adat di Indonesia telah ada jauh sebelum Indonesia merdeka, menunjukkan bahwa prinsip keadilan sosial dan kelestarian lingkungan telah menjadi bagian dari budaya Nusantara. Memahami kearifan lokal seperti Tanah Ulen membantu kita menghargai keberagaman budaya Indonesia sekaligus menguatkan identitas nasional berdasarkan Bhinneka Tunggal Ika.</p>
+                    <div class="penjelasan-box">
+                        <h4><i class="fas fa-history"></i> Mengapa Materi Ini Penting?</h4>
+                        <p>Mempelajari Tanah Ulen penting karena konsep ini merepresentasikan penerapan nilai-nilai Pancasila dalam kehidupan nyata masyarakat adat. Sejarah pengelolaan tanah secara adat di Indonesia telah ada jauh sebelum Indonesia merdeka, menunjukkan bahwa prinsip keadilan sosial dan kelestarian lingkungan telah menjadi bagian dari budaya Nusantara.</p>
+                        <p>Di era modern, ketika eksploitasi sumber daya alam seringkali tidak terkendali, memahami kearifan lokal seperti Tanah Ulen menjadi semakin relevan. Sistem ini mengajarkan tentang keberlanjutan, penghormatan terhadap alam, dan kebijaksanaan dalam mengelola sumber daya untuk generasi mendatang.</p>
                     </div>
                 </div>
             </article>
             
-            <!-- Video 2 -->
-            <article class="video-card">
-                <div class="video-header">
-                    <h3><i class="fas fa-globe-asia"></i> Hal 10: Mempromosikan Budaya Bangsa Indonesia</h3>
+            <!-- Quiz untuk Materi 1 -->
+            <div class="quiz-container">
+                <div class="quiz-header">
+                    <h3><i class="fas fa-question-circle"></i> Quiz: Tanah Ulen</h3>
+                    <div class="score">Skor: <span id="score1">0</span>/5</div>
                 </div>
-                <div class="video-content">
-                    <p><strong>Materi:</strong> Strategi mempromosikan budaya Indonesia di era globalisasi dan dunia yang terhubung. Video ini membahas bagaimana kita dapat memperkenalkan kekayaan budaya Indonesia kepada dunia internasional.</p>
+                
+                <div id="quiz1">
+                    <div class="question">
+                        <p>1. Apa yang dimaksud dengan Tanah Ulen?</p>
+                        <div class="options">
+                            <div class="option" data-quiz="1" data-answer="a">A. Sistem pengelolaan tanah adat masyarakat Dayak</div>
+                            <div class="option" data-quiz="1" data-answer="b">B. Tanah untuk pertanian komersial</div>
+                            <div class="option" data-quiz="1" data-answer="c">C. Tanah milik pemerintah</div>
+                            <div class="option" data-quiz="1" data-answer="d">D. Tanah untuk pemukiman modern</div>
+                        </div>
+                    </div>
+                    
+                    <div class="question">
+                        <p>2. Apa fungsi utama Tanah Ulen?</p>
+                        <div class="options">
+                            <div class="option" data-quiz="1" data-answer="a">A. Sebagai cadangan sumber daya untuk masa depan</div>
+                            <div class="option" data-quiz="1" data-answer="b">B. Untuk kegiatan pertambangan</div>
+                            <div class="option" data-quiz="1" data-answer="c">C. Sebagai lokasi industri</div>
+                            <div class="option" data-quiz="1" data-answer="d">D. Untuk pembangunan infrastruktur</div>
+                        </div>
+                    </div>
+                    
+                    <div class="question">
+                        <p>3. Nilai Pancasila apa yang tercermin dalam konsep Tanah Ulen?</p>
+                        <div class="options">
+                            <div class="option" data-quiz="1" data-answer="a">A. Keadilan sosial bagi seluruh rakyat Indonesia</div>
+                            <div class="option" data-quiz="1" data-answer="b">B. Persatuan Indonesia</div>
+                            <div class="option" data-quiz="1" data-answer="c">C. Ketuhanan Yang Maha Esa</div>
+                            <div class="option" data-quiz="1" data-answer="d">D. Kemanusiaan yang adil dan beradab</div>
+                        </div>
+                    </div>
+                    
+                    <div class="question">
+                        <p>4. Mengapa Tanah Ulen penting untuk dipelajari di era modern?</p>
+                        <div class="options">
+                            <div class="option" data-quiz="1" data-answer="a">A. Karena mengajarkan prinsip keberlanjutan</div>
+                            <div class="option" data-quiz="1" data-answer="b">B. Karena mendukung industrialisasi</div>
+                            <div class="option" data-quiz="1" data-answer="c">C. Karena meningkatkan ekspor hasil hutan</div>
+                            <div class="option" data-quiz="1" data-answer="d">D. Karena mendukung urbanisasi</div>
+                        </div>
+                    </div>
+                    
+                    <div class="question">
+                        <p>5. Bagaimana masyarakat Dayak menjaga Tanah Ulen?</p>
+                        <div class="options">
+                            <div class="option" data-quiz="1" data-answer="a">A. Dengan aturan adat yang ketat</div>
+                            <div class="option" data-quiz="1" data-answer="b">B. Dengan polisi hutan</div>
+                            <div class="option" data-quiz="1" data-answer="c">C. Dengan teknologi modern</div>
+                            <div class="option" data-quiz="1" data-answer="d">D. Dengan bantuan pihak asing</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quiz-buttons">
+                    <button class="btn btn-secondary" id="reset1">
+                        <i class="fas fa-redo"></i> Ulangi Quiz
+                    </button>
+                    <button class="btn btn-primary" id="submit1">
+                        <i class="fas fa-paper-plane"></i> Kirim Jawaban
+                    </button>
+                </div>
+                
+                <div class="result" id="result1">
+                    <h3><i class="fas fa-trophy"></i> Hasil Quiz</h3>
+                    <div class="result-score" id="result-score1">0/5</div>
+                    <p id="result-message1"></p>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Materi 2: Promosi Budaya -->
+        <section id="materi2" class="materi-section">
+            <article class="materi-card">
+                <div class="materi-header">
+                    <h3><i class="fas fa-globe-asia"></i> Hal 10: Mempromosikan Budaya Bangsa Indonesia dalam Dunia yang Terhubung</h3>
+                </div>
+                <div class="materi-content">
+                    <h4><i class="fas fa-book"></i> Materi Pembelajaran</h4>
+                    <p>Di era globalisasi dan dunia yang semakin terhubung, mempromosikan budaya bangsa Indonesia menjadi penting untuk memperkuat identitas nasional dan meningkatkan posisi Indonesia di mata dunia.</p>
+                    
+                    <p>Strategi mempromosikan budaya Indonesia:</p>
+                    <ol>
+                        <li><strong>Digitalisasi budaya:</strong> Menggunakan media digital untuk memperkenalkan budaya Indonesia</li>
+                        <li><strong>Pertukaran budaya:</strong> Program pertukaran pelajar, seniman, dan budaya dengan negara lain</li>
+                        <li><strong>Festival budaya internasional:</strong> Mengikuti dan menyelenggarakan festival budaya di dalam dan luar negeri</li>
+                        <li><strong>Produk kreatif berbasis budaya:</strong> Mengembangkan film, musik, fashion, dan produk kreatif lainnya yang mengangkat budaya Indonesia</li>
+                        <li><strong>Wisata budaya:</strong> Mengembangkan destinasi wisata yang menonjolkan kekayaan budaya Indonesia</li>
+                    </ol>
+                    
+                    <p>Contoh keberhasilan promosi budaya Indonesia:</p>
+                    <ul>
+                        <li>Batik diakui UNESCO sebagai Warisan Kemanusiaan untuk Budaya Lisan dan Nonbendawi</li>
+                        <li>Tari Saman dari Aceh yang dikenal internasional</li>
+                        <li>Wayang sebagai warisan budaya dunia</li>
+                        <li>Kuliner Indonesia yang semakin populer di dunia internasional</li>
+                    </ul>
                     
                     <a href="https://drive.google.com/file/d/1XTCF5WztH6cdrVoEa91eFLWiPQhRa0BQ/view?usp=sharing" target="_blank" class="video-link">
-                        <i class="fas fa-play-circle"></i> lihat teks penjelasan
+                        <i class="fas fa-play-circle"></i> Tonton Video Promosi Budaya
                     </a>
                     
-                    <div class="history-box">
-                        <h4><i class="fas fa-history"></i> Mengapa Harus Nonton Video Ini?</h4>
-                        <p>Sejarah menunjukkan bahwa bangsa Indonesia memiliki kekayaan budaya yang sangat beragam yang telah berkembang selama ribuan tahun. Namun, di era globalisasi, budaya lokal sering terdesak oleh budaya asing. Mempelajari cara mempromosikan budaya bangsa membantu kita menjaga warisan leluhur dari kepunahan dan memperkuat identitas nasional di tengah arus globalisasi. Sejak Sumpah Pemuda 1928, pemuda Indonesia telah berkomitmen untuk menjaga persatuan dalam keberagaman budaya, dan di era digital ini, kita perlu terus melanjutkan semangat tersebut dengan cara-cara yang relevan.</p>
+                    <div class="penjelasan-box">
+                        <h4><i class="fas fa-history"></i> Mengapa Materi Ini Penting?</h4>
+                        <p>Sejarah menunjukkan bahwa Indonesia memiliki kekayaan budaya yang sangat beragam yang telah berkembang selama ribuan tahun. Dari zaman kerajaan-kerajaan Nusantara seperti Sriwijaya dan Majapahit, Indonesia telah menjadi pusat pertukaran budaya.</p>
+                        <p>Namun, di era globalisasi, budaya lokal sering terdesak oleh budaya asing. Mempelajari cara mempromosikan budaya bangsa membantu kita menjaga warisan leluhur dari kepunahan dan memperkuat identitas nasional di tengah arus globalisasi. Sejak Sumpah Pemuda 1928, pemuda Indonesia telah berkomitmen untuk menjaga persatuan dalam keberagaman budaya, dan di era digital ini, kita perlu terus melanjutkan semangat tersebut dengan cara-cara yang relevan.</p>
                     </div>
                 </div>
             </article>
+            
+            <!-- Quiz untuk Materi 2 -->
+            <div class="quiz-container">
+                <div class="quiz-header">
+                    <h3><i class="fas fa-question-circle"></i> Quiz: Promosi Budaya</h3>
+                    <div class="score">Skor: <span id="score2">0</span>/5</div>
+                </div>
+                
+                <div id="quiz2">
+                    <div class="question">
+                        <p>1. Mengapa promosi budaya Indonesia penting di era globalisasi?</p>
+                        <div class="options">
+                            <div class="option" data-quiz="2" data-answer="a">A. Untuk memperkuat identitas nasional</div>
+                            <div class="option" data-quiz="2" data-answer="b">B. Untuk meniru budaya asing</div>
+                            <div class="option" data-quiz="2" data-answer="c">C. Untuk menghilangkan budaya lokal</div>
+                            <div class="option" data-quiz="2" data-answer="d">D. Untuk menarik investor asing</div>
+                        </div>
+                    </div>
+                    
+                    <div class="question">
+                        <p>2. Apa yang dimaksud dengan digitalisasi budaya?</p>
+                        <div class="options">
+                            <div class="option" data-quiz="2" data-answer="a">A. Menggunakan media digital untuk memperkenalkan budaya</div>
+                            <div class="option" data-quiz="2" data-answer="b">B. Menghilangkan budaya tradisional</div>
+                            <div class="option" data-quiz="2" data-answer="c">C. Mengganti budaya dengan teknologi</div>
+                            <div class="option" data-quiz="2" data-answer="d">D. Membuat budaya hanya di dunia digital</div>
+                        </div>
+                    </div>
+                    
+                    <div class="question">
+                        <p>3. Contoh produk kreatif berbasis budaya adalah...</p>
+                        <div class="options">
+                            <div class="option" data-quiz="2" data-answer="a">A. Film yang mengangkat cerita rakyat Indonesia</div>
+                            <div class="option" data-quiz="2" data-answer="b">B. Teknologi canggih dari luar negeri</div>
+                            <div class="option" data-quiz="2" data-answer="c">C. Makanan cepat saji internasional</div>
+                            <div class="option" data-quiz="2" data-answer="d">D. Fashion dari desainer luar negeri</div>
+                        </div>
+                    </div>
+                    
+                    <div class="question">
+                        <p>4. Kapan Sumpah Pemuda yang berkomitmen menjaga persatuan dalam keberagaman budaya terjadi?</p>
+                        <div class="options">
+                            <div class="option" data-quiz="2" data-answer="a">A. 28 Oktober 1928</div>
+                            <div class="option" data-quiz="2" data-answer="b">B. 17 Agustus 1945</div>
+                            <div class="option" data-quiz="2" data-answer="c">C. 10 November 1945</div>
+                            <div class="option" data-quiz="2" data-answer="d">D. 1 Juni 1945</div>
+                        </div>
+                    </div>
+                    
+                    <div class="question">
+                        <p>5. Manakah yang BUKAN contoh keberhasilan promosi budaya Indonesia?</p>
+                        <div class="options">
+                            <div class="option" data-quiz="2" data-answer="a">A. Batik diakui UNESCO</div>
+                            <div class="option" data-quiz="2" data-answer="b">B. Tari Saman dikenal internasional</div>
+                            <div class="option" data-quiz="2" data-answer="c">C. Wayang sebagai warisan budaya dunia</div>
+                            <div class="option" data-quiz="2" data-answer="d">D. Menghilangkan budaya daerah</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quiz-buttons">
+                    <button class="btn btn-secondary" id="reset2">
+                        <i class="fas fa-redo"></i> Ulangi Quiz
+                    </button>
+                    <button class="btn btn-primary" id="submit2">
+                        <i class="fas fa-paper-plane"></i> Kirim Jawaban
+                    </button>
+                </div>
+                
+                <div class="result" id="result2">
+                    <h3><i class="fas fa-trophy"></i> Hasil Quiz</h3>
+                    <div class="result-score" id="result-score2">0/5</div>
+                    <p id="result-message2"></p>
+                </div>
+            </div>
         </section>
         
-        <section class="video-section">
-            <!-- Video 3 -->
-            <article class="video-card" style="flex: 1 1 100%; max-width: 100%;">
-                <div class="video-header">
+        <!-- Materi 3: Keamanan Siber -->
+        <section id="materi3" class="materi-section">
+            <article class="materi-card">
+                <div class="materi-header">
                     <h3><i class="fas fa-shield-alt"></i> Hal 49: Keamanan Siber dan Kebutuhan Sistem Digital Dunia Maya</h3>
                 </div>
-                <div class="video-content">
-                    <p><strong>Materi:</strong> Tantangan dan kebutuhan keamanan siber dalam sistem digital dan dunia maya. Video ini membahas pentingnya kesadaran keamanan digital di era teknologi informasi.</p>
+                <div class="materi-content">
+                    <h4><i class="fas fa-book"></i> Materi Pembelajaran</h4>
+                    <p>Keamanan siber (cybersecurity) adalah praktik melindungi sistem, jaringan, dan program dari serangan digital. Serangan ini biasanya bertujuan untuk mengakses, mengubah, atau menghancurkan informasi sensitif, memeras uang dari pengguna, atau mengganggu proses bisnis normal.</p>
+                    
+                    <p>Ancaman keamanan siber yang umum:</p>
+                    <ol>
+                        <li><strong>Malware:</strong> Perangkat lunak berbahaya seperti virus, worm, dan ransomware</li>
+                        <li><strong>Phishing:</strong> Upaya penipuan untuk mendapatkan informasi sensitif dengan menyamar sebagai entitas tepercaya</li>
+                        <li><strong>Serangan DDoS (Distributed Denial of Service):</strong> Membanjiri sistem dengan lalu lintas internet untuk mengganggu layanan</li>
+                        <li><strong>Serangan man-in-the-middle:</strong> Penyadapan komunikasi antara dua pihak</li>
+                        <li><strong>SQL injection:</strong> Menyisipkan kode berbahaya ke dalam server yang menggunakan SQL</li>
+                    </ol>
+                    
+                    <p>Cara melindungi diri di dunia maya:</p>
+                    <ul>
+                        <li>Gunakan kata sandi yang kuat dan unik untuk setiap akun</li>
+                        <li>Aktifkan autentikasi dua faktor</li>
+                        <li>Perbarui perangkat lunak secara teratur</li>
+                        <li>Hati-hati dengan email dan link mencurigakan</li>
+                        <li>Gunakan antivirus dan firewall</li>
+                        <li>Backup data penting secara teratur</li>
+                    </ul>
+                    
+                    <p>Peran pemerintah dalam keamanan siber:</p>
+                    <ul>
+                        <li>Membuat regulasi dan kebijakan keamanan siber</li>
+                        <li>Meningkatkan kesadaran masyarakat tentang keamanan digital</li>
+                        <li>Mengembangkan kapasitas SDM di bidang keamanan siber</li>
+                        <li>Melindungi infrastruktur vital negara dari serangan siber</li>
+                    </ul>
                     
                     <a href="https://drive.google.com/file/d/1ICyOVnZQSNBGYuloQYpt4roTiUkMLNmI/view?usp=sharing" target="_blank" class="video-link">
-                        <i class="fas fa-play-circle"></i> Lihat Penjelasan Teks Detail keamanan siber
+                        <i class="fas fa-play-circle"></i> Tonton Video Keamanan Siber
                     </a>
                     
-                    <div class="history-box">
-                        <h4><i class="fas fa-history"></i> Mengapa Harus Nonton Video Ini?</h4>
-                        <p>Keamanan siber menjadi isu krusial dalam PPKn karena menyangkut perlindungan terhadap kedaulatan negara di ruang digital. Sejarah perkembangan internet menunjukkan bahwa dunia maya telah menjadi medan baru untuk interaksi sosial, ekonomi, dan politik. Sebagai warga negara digital, kita perlu memahami ancaman siber yang dapat mengganggu stabilitas nasional, seperti penyebaran hoaks, ujaran kebencian, dan serangan siber terhadap infrastruktur vital. Pembelajaran ini membantu membangun kesadaran akan pentingnya keamanan siber sebagai bagian dari bela negara di era digital, melanjutkan semangat pertahanan negara yang diajarkan sejak masa perjuangan kemerdekaan.</p>
+                    <div class="penjelasan-box">
+                        <h4><i class="fas fa-history"></i> Mengapa Materi Ini Penting?</h4>
+                        <p>Keamanan siber menjadi isu krusial dalam PPKn karena menyangkut perlindungan terhadap kedaulatan negara di ruang digital. Sejarah perkembangan internet menunjukkan bahwa dunia maya telah menjadi medan baru untuk interaksi sosial, ekonomi, dan politik.</p>
+                        <p>Sebagai warga negara digital, kita perlu memahami ancaman siber yang dapat mengganggu stabilitas nasional, seperti penyebaran hoaks, ujaran kebencian, dan serangan siber terhadap infrastruktur vital. Pembelajaran ini membantu membangun kesadaran akan pentingnya keamanan siber sebagai bagian dari bela negara di era digital, melanjutkan semangat pertahanan negara yang diajarkan sejak masa perjuangan kemerdekaan.</p>
                     </div>
                 </div>
             </article>
+            
+            <!-- Quiz untuk Materi 3 -->
+            <div class="quiz-container">
+                <div class="quiz-header">
+                    <h3><i class="fas fa-question-circle"></i> Quiz: Keamanan Siber</h3>
+                    <div class="score">Skor: <span id="score3">0</span>/5</div>
+                </div>
+                
+                <div id="quiz3">
+                    <div class="question">
+                        <p>1. Apa yang dimaksud dengan keamanan siber?</p>
+                        <div class="options">
+                            <div class="option" data-quiz="3" data-answer="a">A. Praktik melindungi sistem dan jaringan dari serangan digital</div>
+                            <div class="option" data-quiz="3" data-answer="b">B. Pengamanan fisik gedung dan kantor</div>
+                            <div class="option" data-quiz="3" data-answer="c">C. Keamanan dalam bertransaksi tunai</div>
+                            <div class="option" data-quiz="3" data-answer="d">D. Pengamanan dokumen kertas</div>
+                        </div>
+                    </div>
+                    
+                    <div class="question">
+                        <p>2. Apa itu phishing?</p>
+                        <div class="options">
+                            <div class="option" data-quiz="3" data-answer="a">A. Upaya penipuan untuk mendapatkan informasi sensitif</div>
+                            <div class="option" data-quiz="3" data-answer="b">B. Virus komputer yang merusak hardware</div>
+                            <div class="option" data-quiz="3" data-answer="c">C. Program untuk mempercepat internet</div>
+                            <div class="option" data-quiz="3" data-answer="d">D. Aplikasi untuk mengedit foto</div>
+                        </div>
+                    </div>
+                    
+                    <div class="question">
+                        <p>3. Mengapa keamanan siber penting bagi kedaulatan negara?</p>
+                        <div class="options">
+                            <div class="option" data-quiz="3" data-answer="a">A. Karena melindungi infrastruktur vital dari serangan digital</div>
+                            <div class="option" data-quiz="3" data-answer="b">B. Karena meningkatkan kecepatan internet</div>
+                            <div class="option" data-quiz="3" data-answer="c">C. Karena mengurangi biaya operasional pemerintah</div>
+                            <div class="option" data-quiz="3" data-answer="d">D. Karena menarik investor asing</div>
+                        </div>
+                    </div>
+                    
+                    <div class="question">
+                        <p>4. Apa yang dimaksud dengan autentikasi dua faktor?</p>
+                        <div class="options">
+                            <div class="option" data-quiz="3" data-answer="a">A. Metode verifikasi yang menggunakan dua jenis identifikasi</div>
+                            <div class="option" data-quiz="3" data-answer="b">B. Dua kata sandi untuk satu akun</div>
+                            <div class="option" data-quiz="3" data-answer="c">C. Dua akun untuk satu layanan</div>
+                            <div class="option" data-quiz="3" data-answer="d">D. Dua email untuk verifikasi</div>
+                        </div>
+                    </div>
+                    
+                    <div class="question">
+                        <p>5. Manakah yang BUKAN cara melindungi diri di dunia maya?</p>
+                        <div class="options">
+                            <div class="option" data-quiz="3" data-answer="a">A. Membagikan kata sandi dengan teman dekat</div>
+                            <div class="option" data-quiz="3" data-answer="b">B. Menggunakan kata sandi yang kuat</div>
+                            <div class="option" data-quiz="3" data-answer="c">C. Memperbarui perangkat lunak secara teratur</div>
+                            <div class="option" data-quiz="3" data-answer="d">D. Hati-hati dengan email mencurigakan</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="quiz-buttons">
+                    <button class="btn btn-secondary" id="reset3">
+                        <i class="fas fa-redo"></i> Ulangi Quiz
+                    </button>
+                    <button class="btn btn-primary" id="submit3">
+                        <i class="fas fa-paper-plane"></i> Kirim Jawaban
+                    </button>
+                </div>
+                
+                <div class="result" id="result3">
+                    <h3><i class="fas fa-trophy"></i> Hasil Quiz</h3>
+                    <div class="result-score" id="result-score3">0/5</div>
+                    <p id="result-message3"></p>
+                </div>
+            </div>
         </section>
-        
-        <div class="instructions">
-            <h4><i class="fas fa-info-circle"></i> Cara Menonton Video</h4>
-            <p>Untuk menonton video pembelajaran:</p>
-            <ul>
-                <li>Klik tombol "Tonton Video" di atas setiap materi</li>
-                <li>Video akan terbuka di tab baru browser Anda</li>
-                <li>Pastikan Anda sudah login ke akun Google untuk mengakses video</li>
-                <li>Jika video tidak bisa diputar, coba refresh halaman atau hubungi guru Anda</li>
-            </ul>
-        </div>
-        
-        <div class="note">
-            <h4><i class="fas fa-exclamation-triangle"></i> Catatan Penting</h4>
-            <p>Video pembelajaran disimpan di Google Drive. Jika Anda mengalami kesulitan mengakses video, pastikan:</p>
-            <ul style="padding-left: 1.5rem; margin-top: 0.5rem;">
-                <li>Anda telah login ke akun Google yang sesuai</li>
-                <li>Koneksi internet Anda stabil</li>
-                <li>Browser Anda mendukung pemutaran video dari Google Drive</li>
-            </ul>
-        </div>
     </div>
     
     <footer>
         <p><i class="fas fa-copyright"></i> 2023 Pembelajaran PPKn Kelas 8 | Materi Pendidikan Pancasila dan Kewarganegaraan</p>
-        <p style="margin-top: 0.8rem; font-size: 0.9rem; opacity: 0.9;"><i class="fas fa-video"></i> Sumber video: Google Drive | Dirangkum untuk keperluan pembelajaran</p>
+        <p style="margin-top: 0.8rem; font-size: 0.9rem; opacity: 0.9;"><i class="fas fa-book"></i> Sumber materi: Buku PPKn Kelas 8 Kurikulum Merdeka</p>
     </footer>
     
     <script>
-        // Tambahkan efek animasi saat halaman dimuat
+        // Navigasi antar materi
         document.addEventListener('DOMContentLoaded', function() {
-            // Animasi untuk kartu video
-            const videoCards = document.querySelectorAll('.video-card');
-            videoCards.forEach((card, index) => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                
-                setTimeout(() => {
-                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }, 200 * index);
-            });
+            const navLinks = document.querySelectorAll('.nav-link');
+            const materiSections = document.querySelectorAll('.materi-section');
             
-            // Konfirmasi saat mengklik link video
-            const videoLinks = document.querySelectorAll('.video-link');
-            videoLinks.forEach(link => {
+            navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
-                    console.log('Membuka video: ' + this.href);
+                    e.preventDefault();
+                    
+                    // Hapus kelas active dari semua link dan section
+                    navLinks.forEach(l => l.classList.remove('active'));
+                    materiSections.forEach(s => s.classList.remove('active'));
+                    
+                    // Tambahkan kelas active ke link yang diklik
+                    this.classList.add('active');
+                    
+                    // Tampilkan section yang sesuai
+                    const targetId = this.getAttribute('data-target');
+                    let targetSection;
+                    
+                    if (targetId === 'materi1') {
+                        targetSection = document.getElementById('materi1');
+                    } else if (targetId === 'materi2') {
+                        targetSection = document.getElementById('materi2');
+                    } else if (targetId === 'materi3') {
+                        targetSection = document.getElementById('materi3');
+                    }
+                    
+                    if (targetSection) {
+                        targetSection.classList.add('active');
+                    }
                 });
             });
             
-            // Menambahkan tahun dinamis di footer
+            // Jawaban benar untuk setiap quiz
+            const correctAnswers = {
+                quiz1: ['a', 'a', 'a', 'a', 'a'],
+                quiz2: ['a', 'a', 'a', 'a', 'd'],
+                quiz3: ['a', 'a', 'a', 'a', 'a']
+            };
+            
+            // Fungsi untuk mengatur quiz
+            function setupQuiz(quizNumber) {
+                const quizId = `quiz${quizNumber}`;
+                const submitBtn = document.getElementById(`submit${quizNumber}`);
+                const resetBtn = document.getElementById(`reset${quizNumber}`);
+                const scoreElement = document.getElementById(`score${quizNumber}`);
+                const resultElement = document.getElementById(`result${quizNumber}`);
+                const resultScoreElement = document.getElementById(`result-score${quizNumber}`);
+                const resultMessageElement = document.getElementById(`result-message${quizNumber}`);
+                
+                let score = 0;
+                let userAnswers = new Array(5).fill(null);
+                
+                // Pilihan jawaban
+                const options = document.querySelectorAll(`#${quizId} .option`);
+                
+                options.forEach(option => {
+                    option.addEventListener('click', function() {
+                        const quizNum = this.getAttribute('data-quiz');
+                        const answer = this.getAttribute('data-answer');
+                        const questionIndex = Array.from(this.parentElement.parentElement.parentElement.children).indexOf(this.parentElement.parentElement);
+                        
+                        if (quizNum == quizNumber) {
+                            // Hapus seleksi dari semua opsi dalam pertanyaan yang sama
+                            const allOptionsInQuestion = this.parentElement.querySelectorAll('.option');
+                            allOptionsInQuestion.forEach(opt => {
+                                opt.classList.remove('selected');
+                            });
+                            
+                            // Tambahkan seleksi ke opsi yang diklik
+                            this.classList.add('selected');
+                            userAnswers[questionIndex] = answer;
+                        }
+                    });
+                });
+                
+                // Submit jawaban
+                submitBtn.addEventListener('click', function() {
+                    score = 0;
+                    
+                    // Reset tampilan opsi
+                    options.forEach(option => {
+                        option.classList.remove('correct', 'incorrect');
+                    });
+                    
+                    // Periksa jawaban
+                    for (let i = 0; i < 5; i++) {
+                        if (userAnswers[i] === correctAnswers[quizId][i]) {
+                            score++;
+                            
+                            // Tandai jawaban benar
+                            const correctOption = document.querySelector(`#${quizId} .option[data-quiz="${quizNumber}"][data-answer="${correctAnswers[quizId][i]}"]`);
+                            if (correctOption) {
+                                correctOption.classList.add('correct');
+                            }
+                        } else if (userAnswers[i] !== null) {
+                            // Tandai jawaban salah
+                            const userOption = document.querySelector(`#${quizId} .option[data-quiz="${quizNumber}"][data-answer="${userAnswers[i]}"]`);
+                            if (userOption) {
+                                userOption.classList.add('incorrect');
+                            }
+                            
+                            // Tampilkan jawaban yang benar
+                            const correctOption = document.querySelector(`#${quizId} .option[data-quiz="${quizNumber}"][data-answer="${correctAnswers[quizId][i]}"]`);
+                            if (correctOption) {
+                                correctOption.classList.add('correct');
+                            }
+                        }
+                    }
+                    
+                    // Update skor
+                    scoreElement.textContent = score;
+                    
+                    // Tampilkan hasil
+                    resultScoreElement.textContent = `${score}/5`;
+                    
+                    // Berikan pesan berdasarkan skor
+                    let message = "";
+                    if (score === 5) {
+                        message = "SEMPURNA! Anda benar-benar memahami materi ini.";
+                    } else if (score >= 4) {
+                        message = "Hampir sempurna! Pemahaman Anda sangat baik.";
+                    } else if (score >= 3) {
+                        message = "Cukup baik! Coba pelajari kembali materi yang belum dikuasai.";
+                    } else {
+                        message = "Perlu belajar lagi. Coba ulangi membaca materi dengan lebih seksama.";
+                    }
+                    
+                    resultMessageElement.textContent = message;
+                    resultElement.style.display = 'block';
+                    
+                    // Scroll ke hasil
+                    resultElement.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                });
+                
+                // Reset quiz
+                resetBtn.addEventListener('click', function() {
+                    score = 0;
+                    userAnswers = new Array(5).fill(null);
+                    
+                    // Reset tampilan
+                    options.forEach(option => {
+                        option.classList.remove('selected', 'correct', 'incorrect');
+                    });
+                    
+                    // Reset skor
+                    scoreElement.textContent = '0';
+                    
+                    // Sembunyikan hasil
+                    resultElement.style.display = 'none';
+                });
+            }
+            
+            // Setup ketiga quiz
+            setupQuiz(1);
+            setupQuiz(2);
+            setupQuiz(3);
+            
+            // Tambahkan tahun dinamis di footer
             const currentYear = new Date().getFullYear();
             const footerCopyright = document.querySelector('footer p:first-child');
             footerCopyright.innerHTML = footerCopyright.innerHTML.replace('2023', currentYear);
