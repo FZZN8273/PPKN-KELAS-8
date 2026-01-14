@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembelajaran PPKn Kelas 8</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f0f7ff;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #1a237e, #283593);
+            color: white;
+            padding: 1.8rem 0;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        header h1 {
+            font-size: 2.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        header p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        .intro {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2.5rem;
+            border-left: 5px solid #283593;
+        }
+        
+        .intro h2 {
+            color: #283593;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+        
+        .intro h2 i {
+            color: #283593;
+        }
+        
+        .video-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .video-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
+            flex: 1;
+            min-width: 300px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .video-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        .video-header {
+            background: linear-gradient(to right, #283593, #1a237e);
+            color: white;
+            padding: 1.5rem;
+        }
+        
+        .video-header h3 {
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .video-header h3 i {
+            font-size: 1.3rem;
+        }
+        
+        .video-content {
+            padding: 1.8rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .video-content p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .video-link {
+            display: inline-block;
+            background: linear-gradient(to right, #283593, #3949ab);
+            color: white;
+            text-decoration: none;
+            padding: 0.9rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s ease;
+            margin-top: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.7rem;
+        }
+        
+        .video-link:hover {
+            background: linear-gradient(to right, #3949ab, #283593);
+            transform: scale(1.03);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        .video-link:active {
+            transform: scale(0.98);
+        }
+        
+        .history-box {
+            background-color: #e8eaf6;
+            border-left: 4px solid #283593;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .history-box h4 {
+            color: #283593;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+        
+        .history-box h4 i {
+            color: #283593;
+        }
+        
+        footer {
+            background-color: #1a237e;
+            color: white;
+            text-align: center;
+            padding: 1.8rem;
+            margin-top: 2rem;
+        }
+        
+        .note {
+            background-color: #fff8e1;
+            border: 1px solid #ffd54f;
+            padding: 1.2rem;
+            border-radius: 8px;
+            margin-top: 2rem;
+            font-size: 0.95rem;
+        }
+        
+        .note h4 {
+            color: #f57c00;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .instructions {
+            background-color: #e8f5e9;
+            border: 1px solid #81c784;
+            padding: 1.2rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+        }
+        
+        .instructions h4 {
+            color: #2e7d32;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.7rem;
+        }
+        
+        .instructions ul {
+            padding-left: 1.5rem;
+            margin-top: 0.5rem;
+        }
+        
+        .instructions li {
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .video-section {
+                flex-direction: column;
+            }
+            
+            .video-card {
+                width: 100%;
+            }
+            
+            header h1 {
+                font-size: 1.9rem;
+            }
+            
+            .video-link {
+                padding: 0.8rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-graduation-cap"></i> Pembelajaran PPKn Kelas 8</h1>
+        <p>Mengenal Kearifan Lokal, Budaya Bangsa, dan Keamanan Siber dalam Konteks Pendidikan Kewarganegaraan</p>
+    </header>
+    
+    <div class="container">
+        <section class="intro">
+            <h2><i class="fas fa-book-open"></i> Selamat Belajar PPKn Kelas 8!</h2>
+            <p>Halaman ini berisi materi pembelajaran PPKn kelas 8 yang disajikan dalam bentuk video. Klik link di bawah setiap judul materi untuk menonton video pembelajaran. Setiap video dilengkapi dengan penjelasan sejarah mengapa materi tersebut penting untuk dipelajari dalam konteks Pendidikan Pancasila dan Kewarganegaraan.</p>
+        </section>
+        
+        <section class="video-section">
+            <!-- Video 1 -->
+            <article class="video-card">
+                <div class="video-header">
+                    <h3><i class="fas fa-seedling"></i> Hal 5: Tanah Ulen - Kearifan Lokal Dayak</h3>
+                </div>
+                <div class="video-content">
+                    <p><strong>Materi:</strong> Tanah Ulen merupakan bentuk kearifan lokal masyarakat Dayak dalam mengelola sumber daya alam secara berkelanjutan. Konsep ini mencerminkan bagaimana masyarakat adat menjaga kelestarian lingkungan berdasarkan nilai-nilai tradisional.</p>
+                    
+                    <a href="https://drive.google.com/file/d/1dvfmpBcdmD_ZszWYzAZdVPWIkkrb4qLF/view?usp=drivesdk" target="_blank" class="video-link">
+                        <i class="fas fa-play-circle"></i> Tonton Video Tanah Ulen
+                    </a>
+                    
+                    <div class="history-box">
+                        <h4><i class="fas fa-history"></i> Mengapa Harus Nonton Video Ini?</h4>
+                        <p>Penting untuk mempelajari Tanah Ulen karena konsep ini merepresentasikan penerapan nilai-nilai Pancasila dalam kehidupan nyata masyarakat adat. Sejarah pengelolaan tanah secara adat di Indonesia telah ada jauh sebelum Indonesia merdeka, menunjukkan bahwa prinsip keadilan sosial dan kelestarian lingkungan telah menjadi bagian dari budaya Nusantara. Memahami kearifan lokal seperti Tanah Ulen membantu kita menghargai keberagaman budaya Indonesia sekaligus menguatkan identitas nasional berdasarkan Bhinneka Tunggal Ika.</p>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- Video 2 -->
+            <article class="video-card">
+                <div class="video-header">
+                    <h3><i class="fas fa-globe-asia"></i> Hal 10: Mempromosikan Budaya Bangsa Indonesia</h3>
+                </div>
+                <div class="video-content">
+                    <p><strong>Materi:</strong> Strategi mempromosikan budaya Indonesia di era globalisasi dan dunia yang terhubung. Video ini membahas bagaimana kita dapat memperkenalkan kekayaan budaya Indonesia kepada dunia internasional.</p>
+                    
+                    <a href="https://drive.google.com/file/d/1XTCF5WztH6cdrVoEa91eFLWiPQhRa0BQ/view?usp=sharing" target="_blank" class="video-link">
+                        <i class="fas fa-play-circle"></i> Tonton Video Promosi Budaya
+                    </a>
+                    
+                    <div class="history-box">
+                        <h4><i class="fas fa-history"></i> Mengapa Harus Nonton Video Ini?</h4>
+                        <p>Sejarah menunjukkan bahwa bangsa Indonesia memiliki kekayaan budaya yang sangat beragam yang telah berkembang selama ribuan tahun. Namun, di era globalisasi, budaya lokal sering terdesak oleh budaya asing. Mempelajari cara mempromosikan budaya bangsa membantu kita menjaga warisan leluhur dari kepunahan dan memperkuat identitas nasional di tengah arus globalisasi. Sejak Sumpah Pemuda 1928, pemuda Indonesia telah berkomitmen untuk menjaga persatuan dalam keberagaman budaya, dan di era digital ini, kita perlu terus melanjutkan semangat tersebut dengan cara-cara yang relevan.</p>
+                    </div>
+                </div>
+            </article>
+        </section>
+        
+        <section class="video-section">
+            <!-- Video 3 -->
+            <article class="video-card" style="flex: 1 1 100%; max-width: 100%;">
+                <div class="video-header">
+                    <h3><i class="fas fa-shield-alt"></i> Hal 49: Keamanan Siber dan Kebutuhan Sistem Digital Dunia Maya</h3>
+                </div>
+                <div class="video-content">
+                    <p><strong>Materi:</strong> Tantangan dan kebutuhan keamanan siber dalam sistem digital dan dunia maya. Video ini membahas pentingnya kesadaran keamanan digital di era teknologi informasi.</p>
+                    
+                    <a href="https://drive.google.com/file/d/1ICyOVnZQSNBGYuloQYpt4roTiUkMLNmI/view?usp=sharing" target="_blank" class="video-link">
+                        <i class="fas fa-play-circle"></i> Tonton Video Keamanan Siber
+                    </a>
+                    
+                    <div class="history-box">
+                        <h4><i class="fas fa-history"></i> Mengapa Harus Nonton Video Ini?</h4>
+                        <p>Keamanan siber menjadi isu krusial dalam PPKn karena menyangkut perlindungan terhadap kedaulatan negara di ruang digital. Sejarah perkembangan internet menunjukkan bahwa dunia maya telah menjadi medan baru untuk interaksi sosial, ekonomi, dan politik. Sebagai warga negara digital, kita perlu memahami ancaman siber yang dapat mengganggu stabilitas nasional, seperti penyebaran hoaks, ujaran kebencian, dan serangan siber terhadap infrastruktur vital. Pembelajaran ini membantu membangun kesadaran akan pentingnya keamanan siber sebagai bagian dari bela negara di era digital, melanjutkan semangat pertahanan negara yang diajarkan sejak masa perjuangan kemerdekaan.</p>
+                    </div>
+                </div>
+            </article>
+        </section>
+        
+        <div class="instructions">
+            <h4><i class="fas fa-info-circle"></i> Cara Menonton Video</h4>
+            <p>Untuk menonton video pembelajaran:</p>
+            <ul>
+                <li>Klik tombol "Tonton Video" di atas setiap materi</li>
+                <li>Video akan terbuka di tab baru browser Anda</li>
+                <li>Pastikan Anda sudah login ke akun Google untuk mengakses video</li>
+                <li>Jika video tidak bisa diputar, coba refresh halaman atau hubungi guru Anda</li>
+            </ul>
+        </div>
+        
+        <div class="note">
+            <h4><i class="fas fa-exclamation-triangle"></i> Catatan Penting</h4>
+            <p>Video pembelajaran disimpan di Google Drive. Jika Anda mengalami kesulitan mengakses video, pastikan:</p>
+            <ul style="padding-left: 1.5rem; margin-top: 0.5rem;">
+                <li>Anda telah login ke akun Google yang sesuai</li>
+                <li>Koneksi internet Anda stabil</li>
+                <li>Browser Anda mendukung pemutaran video dari Google Drive</li>
+            </ul>
+        </div>
+    </div>
+    
+    <footer>
+        <p><i class="fas fa-copyright"></i> 2023 Pembelajaran PPKn Kelas 8 | Materi Pendidikan Pancasila dan Kewarganegaraan</p>
+        <p style="margin-top: 0.8rem; font-size: 0.9rem; opacity: 0.9;"><i class="fas fa-video"></i> Sumber video: Google Drive | Dirangkum untuk keperluan pembelajaran</p>
+    </footer>
+    
+    <script>
+        // Tambahkan efek animasi saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animasi untuk kartu video
+            const videoCards = document.querySelectorAll('.video-card');
+            videoCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 200 * index);
+            });
+            
+            // Konfirmasi saat mengklik link video
+            const videoLinks = document.querySelectorAll('.video-link');
+            videoLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    console.log('Membuka video: ' + this.href);
+                });
+            });
+            
+            // Menambahkan tahun dinamis di footer
+            const currentYear = new Date().getFullYear();
+            const footerCopyright = document.querySelector('footer p:first-child');
+            footerCopyright.innerHTML = footerCopyright.innerHTML.replace('2023', currentYear);
+        });
+    </script>
+</body>
+</html>
